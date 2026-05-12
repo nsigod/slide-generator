@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { apiService, GenerateResponse, ParseLinkResponse } from '../services/api'
+import { apiService } from '../services/api'
 
 function HomePage() {
   const [inputText, setInputText] = useState('')
@@ -45,7 +45,7 @@ function HomePage() {
     setError('')
 
     try {
-      const response: ParseLinkResponse = await apiService.parseLink({
+      const response = await apiService.parseLink({
         share_url: shareUrl,
       })
       if (response.success) {
