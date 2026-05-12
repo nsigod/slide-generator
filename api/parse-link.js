@@ -1,7 +1,7 @@
-import https from 'https';
-import http from 'http';
+const https = require('https');
+const http = require('http');
 
-export default function handler(req, res) {
+module.exports = (req, res) => {
   // 只处理 POST 请求
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -28,7 +28,7 @@ export default function handler(req, res) {
       });
       
       response.on('end', () => {
-        // 简单解析 HTML（提取 title 和段落文本）
+        // 简单解析 HTML
         const titleMatch = html.match(/<title>(.*?)<\/title>/i);
         const title = titleMatch ? titleMatch[1] : '无标题';
         
@@ -37,7 +37,6 @@ export default function handler(req, res) {
         const pRegex = /<p>(.*?)<\/p>/gi;
         let match;
         while ((match = pRegex.exec(html)) !== null) {
-          // 移除 HTML 标签
           const text = match[1].replace(/<[^>]*>/g, '');
           if (text.trim()) {
             paragraphs.push(text);
@@ -71,4 +70,4 @@ export default function handler(req, res) {
       message: error.message
     });
   }
-}
+};
