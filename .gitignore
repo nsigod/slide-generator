@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+venv/
+_env/
+env/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+*.egg/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+.pytest_cache/
+*.coverage
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Vercel
+.vercel/
+
+# Render
+render-build-*/
