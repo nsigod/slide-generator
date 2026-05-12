@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: slide-generator-api
+    env: python
+    plan: free
+    branch: master
+    repo: https://github.com/nsigod/slide-generator
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DEEPSEEK_API_KEY
+        value: sk-71b8048405584dde84fc7a7fd733c123
+      - key: PYTHON_VERSION
+        value: 3.11.0
